@@ -292,7 +292,8 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-server.listen(port, () => {
-    console.log(`Backend running on http://localhost:${port}`);
+// Add '0.0.0.0' to allow external connections
+server.listen(port, '0.0.0.0', () => {
+    console.log(`Backend running on port ${port}`);
 });
 // app.listen(port); // Deprecated in favor of server.listen
